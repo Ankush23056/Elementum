@@ -1,29 +1,17 @@
-import { motion } from 'framer-motion';
+import Hero from '../sections/Hero';
+import About from '../sections/About';
+import Features from '../sections/Features';
+import Testimonials from '../sections/Testimonials';
+import Newsletter from '../sections/Newsletter';
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        className="text-center"
-      >
-        <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          <span className="block xl:inline">Welcome to </span>
-          <span className="block text-blue-600 xl:inline">Elementum</span>
-        </h1>
-        <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-          A modern React application built with Vite, Tailwind CSS, Framer Motion, and React Router.
-        </p>
-        <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-          <div className="rounded-md shadow">
-            <a href="#" className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10">
-              Get started
-            </a>
-          </div>
-        </div>
-      </motion.div>
+    <div className="w-full">
+      <Hero />
+      <About />
+      <Features />
+      <Testimonials />
+      <Newsletter />
     </div>
   );
 }

@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-brand-green: #e9f5e9;
+  --color-brand-red: #ff7461;
+  --color-brand-purple: #9d6fff;
+  --color-brand-gray: #f9f9f9;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
+
 @layer base {
   body {
-    @apply antialiased text-gray-900 bg-gray-50;
+    @apply antialiased text-gray-800 bg-white font-sans;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-gray-900;
   }
 }

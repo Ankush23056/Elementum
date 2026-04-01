@@ -1,21 +1,39 @@
+// Matches structure and links
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import NavbarItem from './ui/NavbarItem';
+import Container from './ui/Container';
 
 export default function Navbar() {
   return (
-    <nav className="bg-white shadow">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex">
-            <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-xl font-bold text-blue-600">Elementum</Link>
-            </div>
-            <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link to="/" className="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</Link>
-            </div>
+    <nav className="bg-white sticky top-0 z-50">
+      <Container>
+        <div className="flex justify-between h-20 items-center">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link to="/" className="text-2xl font-bold font-serif tracking-wide text-gray-900">
+              Elementum<span className="text-brand-purple text-3xl leading-none">.</span>
+            </Link>
+          </div>
+          
+          {/* Desktop Nav */}
+          <div className="hidden md:flex space-x-8 items-center">
+            <NavbarItem to="/" isActive={true}>Home</NavbarItem>
+            <NavbarItem to="#studio">Studio</NavbarItem>
+            <NavbarItem to="#services">Services</NavbarItem>
+            <NavbarItem to="#contact">Contact</NavbarItem>
+            <NavbarItem to="#faqs">FAQs</NavbarItem>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <button className="text-gray-600 hover:text-gray-900 focus:outline-none shrink-0 border border-gray-200 p-2 rounded-lg">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              </svg>
+            </button>
           </div>
         </div>
-      </div>
+      </Container>
     </nav>
   );
 }
