@@ -1,46 +1,45 @@
 import { motion } from 'framer-motion';
-import Container from '../components/ui/Container';
-import SectionTitle from '../components/ui/SectionTitle';
-import Button from '../components/ui/Button';
 
 export default function Newsletter() {
   return (
-    <section className="py-16 md:py-32 relative overflow-hidden bg-white">
-      <Container maxWidth="max-w-6xl" className="relative z-10">
-        <div className="bg-[#eef8f0] rounded-[2rem] md:rounded-[3rem] p-8 sm:p-16 md:p-24 text-center relative overflow-hidden shadow-sm border border-[#e2efe4]">
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.8 }}
-            className="relative z-20"
-          >
-            <SectionTitle className="!mb-6">
-              Subscribe to <br className="hidden sm:block" />our newsletter
-            </SectionTitle>
-            <p className="text-gray-600 text-lg sm:text-xl mb-10 max-w-2xl mx-auto font-light">
-              Get the latest updates, design news, and strategy tips straight to your inbox. Join 5k+ subscribers today.
-            </p>
-            
-            <form className="max-w-xl mx-auto flex flex-col sm:flex-row gap-4" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                className="flex-grow px-8 py-4 md:py-5 rounded-full border border-gray-200 focus:outline-none focus:ring-4 focus:ring-[#8b5cf6] bg-white shadow-sm text-lg"
-                required
-              />
-              <Button type="submit" variant="primary" className="!py-4 md:!py-5 !px-10 h-full w-full sm:w-auto mt-2 sm:mt-0">
-                Subscribe Now
-              </Button>
-            </form>
-          </motion.div>
+    <section className="relative bg-[#e4f4ea] pt-32 pb-16 overflow-hidden">
+      
+      {/* Absolute Purple Shape */}
+      <div className="absolute right-[-5%] lg:right-[5%] top-[10%] lg:top-[20%] w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 z-0 pointer-events-none">
+        <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
+          <path d="M0 100 A 100 100 0 0 1 200 100 L 200 200 L 0 200 Z" fill="#8b5cf6" transform="rotate(-45 100 100)" />
+        </svg>
+      </div>
 
-          {/* Decorative shapes inside the newsletter card */}
-          <div className="hidden sm:block absolute top-10 left-10 w-24 h-24 border-[6px] border-brand-purple rounded-full opacity-20"></div>
-          <div className="hidden sm:block absolute bottom-[-20%] right-10 w-48 h-48 bg-white rounded-3xl rotate-12 opacity-60"></div>
-        </div>
-      </Container>
+      {/* Hand-drawn Red Arrows */}
+      <div className="absolute top-[-5%] lg:top-[-10%] left-1/2 -translate-x-1/2 lg:-translate-x-[20%] w-[250px] lg:w-[350px] h-[150px] lg:h-[200px] z-0 pointer-events-none">
+        <svg viewBox="0 0 300 200" fill="none" className="w-full h-full text-[#FF5252] opacity-80" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          {/* Arrow 1 */}
+          <path d="M 220,10 C 180,60 100,70 60,120" />
+          <path d="M 50,100 L 60,120 L 85,115" />
+          {/* Arrow 2 */}
+          <path d="M 270,0 C 240,40 180,80 140,130" />
+          <path d="M 130,110 L 140,130 L 165,125" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 text-center">
+        {/* Heading */}
+        <h2 className="text-5xl sm:text-6xl lg:text-[7rem] font-sans font-medium text-[#111827] leading-[1.05] tracking-tight mb-8">
+          Subscribe to<br />
+          our newsletter
+        </h2>
+        
+        {/* Subtitle */}
+        <p className="text-[#4b5563] text-sm sm:text-lg mb-12 font-light tracking-wide">
+          To make your stay special and even more memorable
+        </p>
+
+        {/* Button */}
+        <button className="bg-[#111827] text-white rounded-full px-12 lg:px-14 py-4 lg:py-5 text-sm lg:text-base font-semibold hover:bg-gray-800 transition-colors shadow-2xl tracking-wide">
+          Subscribe Now
+        </button>
+      </div>
     </section>
   );
 }

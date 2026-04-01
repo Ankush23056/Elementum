@@ -1,52 +1,95 @@
 import { motion } from 'framer-motion';
-import Container from '../components/ui/Container';
-import SectionTitle from '../components/ui/SectionTitle';
 
 export default function Features() {
   const features = [
-    { id: 1, title: "Collaborative & partnership", desc: "We focus on building strong relationships and understanding your needs to deliver the best results." },
-    { id: 2, title: "We talk about our weight", desc: "Open communication ensures we're on the same page. We believe in transparent dialogue." },
-    { id: 3, title: "Piloting digital confidence", desc: "Guiding your business with surety in an uncertain digital space through innovative tech." },
+    {
+      title: "Colaborative & partnership",
+      description: "Office of multiple interest content"
+    },
+    {
+      title: "We talk about our weight",
+      description: "The hanger US Air force digital experimental"
+    },
+    {
+      title: "Piloting digital confidence",
+      description: "Delta faucet content, social, digital",
+      hasImage: true
+    }
   ];
 
   return (
-    <section className="py-16 md:py-32 bg-white relative overflow-hidden">
-      <Container className="relative z-10">
-        <SectionTitle align="center" className="mb-12 md:mb-20">
-          What we can <br className="hidden sm:block" />offer you!
-        </SectionTitle>
-        
-        <div className="max-w-4xl mx-auto">
-          {features.map((feature, idx) => (
-            <motion.div 
-              key={feature.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.6, delay: idx * 0.15 }}
-              className="flex flex-col sm:flex-row items-start sm:items-center justify-between py-8 md:py-10 border-b border-gray-200 group cursor-pointer"
-            >
-              <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-16 w-full">
-                <span className="text-gray-400 font-semibold text-sm w-10">0{feature.id}</span>
-                <p className="text-gray-500 max-w-sm text-sm sm:text-base hidden md:block leading-relaxed">
-                  {feature.desc}
+    <section className="relative bg-white py-24 md:py-32 overflow-hidden" id="services">
+
+      {/* Winding Red Line Background */}
+      <div className="absolute top-0 right-0 w-full md:w-[70%] h-[300px] z-0 pointer-events-none hidden md:block overflow-hidden">
+        <svg viewBox="0 0 800 300" fill="none" className="w-full h-full text-[#FF5252] opacity-70" preserveAspectRatio="xMaxYMin slice">
+          {/* Curve matching the screenshot's top right flow */}
+          <path d="M 900 0 C 600 100 500 250 300 150 C 100 50 100 300 0 250" stroke="currentColor" strokeWidth="2.5" fill="none" />
+        </svg>
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Heading */}
+        <div className="mb-20 md:mb-32">
+          <h2 className="text-5xl sm:text-6xl lg:text-[7rem] font-sans text-[#111827] leading-[1.05] tracking-tight">
+            What we{' '}
+            <span className="relative inline-block px-4 py-0 sm:py-1">
+              <span className="relative z-10">can</span>
+              <span className="absolute inset-y-0 left-0 right-0 top-1 bottom-1 bg-[#dcfce7] rounded-full -z-10"></span>
+            </span>
+            <br />
+            <span className="relative inline-block mt-2">
+              offer
+              <svg className="absolute -bottom-1 sm:-bottom-2 left-0 w-[105%] h-[12px] sm:h-[16px] text-[#fbbf24]" viewBox="0 0 200 20" fill="none" preserveAspectRatio="none">
+                <path d="M5 10 L 195 9" stroke="currentColor" strokeWidth="5" strokeLinecap="round" />
+                <path d="M30 18 L 160 16" stroke="currentColor" strokeWidth="4" strokeLinecap="round" opacity="0.8" />
+              </svg>
+            </span>{' '}
+            you!
+          </h2>
+        </div>
+
+        {/* Features List */}
+        <div className="w-full">
+          <div className="w-full border-t border-gray-200"></div>
+
+          {features.map((feature, index) => (
+            <div key={index} className="group relative w-full border-b border-gray-200 py-10 sm:py-16 md:py-20 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
+
+              {/* Left Description Column */}
+              <div className="w-full md:w-[25%] mb-4 md:mb-0 pr-4">
+                <p className="text-[#4b5563] text-sm md:text-[1.05rem] leading-relaxed max-w-[220px]">
+                  {feature.description}
                 </p>
-                <h3 className="text-2xl sm:text-3xl font-serif text-gray-900 group-hover:text-brand-purple transition-colors sm:ml-auto md:ml-0 md:flex-grow font-medium">
+              </div>
+
+              {/* Center Title Column */}
+              <div className="w-full md:w-[50%] relative flex items-center">
+                <h3 className="relative z-10 text-3xl sm:text-4xl lg:text-[3rem] font-sans text-[#111827] tracking-tight">
                   {feature.title}
                 </h3>
+
+                {/* Decorative Circular Collage for 3rd item */}
+                {feature.hasImage && (
+                  <div className="absolute right-0 lg:right-[15%] top-1/2 -translate-y-[45%] w-20 h-20 sm:w-28 sm:h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden bg-white shadow-xl -z-10 pointer-events-none opacity-80">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=300&h=300&fit=crop" alt="Abstract collage" className="w-full h-full object-cover mix-blend-multiply" />
+                  </div>
+                )}
               </div>
-              <div className="mt-6 sm:mt-0 lg:ml-8 w-12 h-12 sm:w-16 sm:h-16 rounded-full border-2 border-gray-200 flex items-center justify-center group-hover:bg-brand-purple group-hover:border-brand-purple group-hover:text-white transition-all shrink-0">
-                <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+
+              {/* Right Arrow Column */}
+              <div className="w-full md:w-[25%] flex justify-end mt-6 md:mt-0 items-center">
+                <svg className="w-16 sm:w-20 lg:w-28 text-[#111827] group-hover:translate-x-4 transition-transform duration-300" viewBox="0 0 100 20" fill="none" preserveAspectRatio="xMaxYMid slice">
+                  <path d="M0 10 L 98 10 M 90 2 L 98 10 L 90 18" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-            </motion.div>
+
+            </div>
           ))}
         </div>
-      </Container>
-      
-      {/* Decorative dashed path */}
-      <div className="hidden lg:block absolute top-[30%] right-[-10%] w-[500px] h-[500px] border-r-2 border-dashed border-brand-red rounded-full opacity-30"></div>
+
+      </div>
     </section>
   );
 }
