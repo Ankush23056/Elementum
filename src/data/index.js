@@ -1,8 +1,9 @@
 export const SITE_CONTENT = {
   hero: {
     title: {
-      part1: "Digital designs",
-      part2: "for the future"
+      part1: "The thinkers and",
+      part2: "doers were changing",
+      part3: "the status Quo with"
     },
     description: "We are a team of strategists, designers, communicators, and researchers who believe that progress happens when you refuse to play things safe."
   },
@@ -11,20 +12,18 @@ export const SITE_CONTENT = {
   },
   features: [
     {
-      title: "Strategy",
-      description: "We help you define your vision and chart a path to success with data-driven insights."
+      title: "Colaborative & partnership",
+      subContent: "Office of multiple interest content",
+      isBox: true
     },
     {
-      title: "Design",
-      description: "Our world-class design team creates beautiful, functional experiences that users love."
+      title: "We talk about our weight",
+      subContent: "The hanger US Air force digital experimental"
     },
     {
-      title: "Digital",
-      description: "We build modern, scalable digital products that drive growth and engagement."
-    },
-    {
-      title: "Social",
-      description: "We help you connect with your audience and build meaningful relationships across platforms."
+      title: "Piloting digital confidence",
+      subContent: "Delta faucet content, social, digital",
+      hasGraphic: true
     }
   ],
   testimonials: {
