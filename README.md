@@ -20,13 +20,13 @@
 ## 📸 Screenshots
 
 **Desktop – Hero Section**
-![Desktop Hero](./screenshots/desktop-hero.png)
+![Desktop Hero](./public/ss1.png)
 
 **Desktop – About Section**
-![Desktop About](./screenshots/desktop-about.png)
+![Desktop About](./public/ss2.png)
 
 **Mobile – Testimonials Section**
-![Mobile Testimonials](./screenshots/mobile-testimonials.png)
+![Mobile Testimonials](./public/ss3.png)
 
 ## 🎨 Figma Design
 https://www.figma.com/design/0K35IOZ4Qwqur0b9o2PXlN/Assignment
