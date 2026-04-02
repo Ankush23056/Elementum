@@ -57,7 +57,7 @@ export default function Testimonials() {
               transition={{ duration: 0.6, delay: index * 0.05, ease: customEase }}
               className={`absolute ${avatar.pos} rounded-full overflow-hidden border-4 border-white shadow-lg z-10`}
             >
-              <img src={avatar.img} alt={`User ${avatar.id}`} className="w-full h-full object-cover" />
+              <img src={avatar.img} loading="lazy" alt={`User ${avatar.id}`} className="w-full h-full object-cover" />
             </motion.div>
           ))}
 

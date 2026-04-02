@@ -47,6 +47,7 @@ export default function Navbar() {
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-900 hover:text-[#8b5cf6] focus:outline-none shrink-0 p-2"
+              aria-label="Toggle Menu"
             >
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (

@@ -81,7 +81,7 @@ export default function About() {
               className="absolute top-[-5%] right-[0%] lg:right-[5%] w-24 h-24 sm:w-36 sm:h-36 bg-[#FF5252] z-0"
             ></motion.div>
             <div className="w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden border-[8px] sm:border-[12px] bg-white border-white shadow-xl relative z-10 ml-auto">
-              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop" alt="Business meeting" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&h=800&fit=crop" loading="lazy" alt="Business meeting" className="w-full h-full object-cover" />
             </div>
           </motion.div>
         </div>
@@ -113,7 +113,7 @@ export default function About() {
               </svg>
             </motion.div>
             <div className="w-[300px] h-[300px] sm:w-[450px] sm:h-[450px] lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden bg-white border-[8px] sm:border-[12px] border-white shadow-xl relative z-10 mr-auto">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop" alt="Team working" className="w-full h-full object-cover" />
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=800&fit=crop" loading="lazy" alt="Team working" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 

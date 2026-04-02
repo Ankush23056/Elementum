@@ -87,7 +87,7 @@ export default function Features() {
                     transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.5 }}
                     className="absolute right-[15%] sm:right-[22%] lg:right-[25%] top-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 z-0 pointer-events-none">
                     <div className="w-full h-full rounded-full shadow-lg overflow-hidden border-[4px] border-white bg-white">
-                      <img src="/feature-graphic.png" className="w-full h-full object-cover scale-110" alt="Collage graphic" />
+                      <img src="/feature-graphic.png" loading="lazy" className="w-full h-full object-cover scale-110" alt="Collage graphic" />
                     </div>
                   </motion.div>
                 )}
