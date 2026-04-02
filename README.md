@@ -1,8 +1,9 @@
 # Elementum – React UX & Performance Showcase
 
 <div align="center">
-  <p>A high-fidelity, production-ready React application engineered from Figma mockups. Focused on pixel-perfect alignment, deeply optimized asset loading, and a standardized custom physics motion system.</p>
+  <p>A high-fidelity, production-ready React application engineered from Figma mockups. Focused on pixel-accurate implementation, deeply optimized asset loading, and a standardized custom physics motion system.</p>
 </div>
+
 
 ---
 
@@ -15,6 +16,21 @@
 *   **Data-Driven Architecture:** All copy, arrays, and lists live uniformly in `src/data/index.js`, making components extremely clean, abstract, and scalable.
 *   **Custom Physics Engine:** Employs a specific cubic-bezier timing curve `[0.215, 0.61, 0.355, 1]` across *all* components, ensuring the entire application breathes and flows cohesively without jarring ease differentials.
 *   **Aggressive Optimization:** Achieves near-instant First Contentful Paint via deep deferred execution (`loading="lazy"`) on mega-pixel graphic assets and avatars below the fold. Perfect 100/100 Lighthouse Accessibility compliance with semantic ARIA labeling.
+
+## 📸 Screenshots
+
+**Desktop – Hero Section**
+![Desktop Hero](./screenshots/desktop-hero.png)
+
+**Desktop – About Section**
+![Desktop About](./screenshots/desktop-about.png)
+
+**Mobile – Testimonials Section**
+![Mobile Testimonials](./screenshots/mobile-testimonials.png)
+
+## 🎨 Figma Design
+https://www.figma.com/design/0K35IOZ4Qwqur0b9o2PXlN/Assignment
+
 
 ## 🛠 Tech Stack
 
@@ -52,6 +68,13 @@ docker run -p 3000:80 -d react-app
 
 ### 3. Open in your browser:
 Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 💻 Run Locally (Optional)
+
+```bash
+npm install  
+npm run dev
+```
 
 ## ✨ Implementation Notes
 
