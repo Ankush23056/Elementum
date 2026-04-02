@@ -10,9 +10,12 @@ export default function Button({ children, variant = "primary", className = "", 
   };
   return (
     <motion.button 
-      whileHover={{ scale: 1.02 }}
+      whileHover={{ 
+        scale: 1.03, 
+        transition: { duration: 0.2 }
+      }}
       whileTap={{ scale: 0.98 }}
-      className={`${baseStyle} ${variants[variant] || variants.primary} ${className}`} 
+      className={`${baseStyle} ${variants[variant] || variants.primary} ${className} transition-shadow`} 
       {...props}
     >
       {children}

@@ -6,7 +6,10 @@ export default function NavbarItem({ to, children, isActive = false }) {
   return (
     <Link to={to} className={`font-medium transition-colors ${activeClass} relative group`}>
       <motion.span 
-        whileHover={{ scale: 1.05 }}
+        whileHover={{ 
+          scale: 1.1,
+          transition: { duration: 0.2 }
+        }}
         whileTap={{ scale: 0.95 }}
         className="inline-block"
       >

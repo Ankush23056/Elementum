@@ -8,14 +8,19 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 z-50 shadow-sm">
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-white sticky top-0 z-50 shadow-sm"
+    >
       <Container>
         <div className="flex justify-between h-20 items-center">
           {/* Logo */}
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
             className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl md:text-3xl font-bold font-serif tracking-wide text-gray-900">
               Elementum<span className="text-brand-purple text-4xl leading-none">.</span>
@@ -23,17 +28,13 @@ export default function Navbar() {
           </motion.div>
           
           {/* Desktop Nav */}
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden md:flex space-x-10 items-center">
+          <div className="hidden md:flex space-x-10 items-center">
             <NavbarItem to="/" isActive={true}>Home</NavbarItem>
             <NavbarItem to="#studio">Studio</NavbarItem>
             <NavbarItem to="#services">Services</NavbarItem>
             <NavbarItem to="#contact">Contact</NavbarItem>
             <NavbarItem to="#faqs">FAQs</NavbarItem>
-          </motion.div>
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
@@ -57,11 +58,11 @@ export default function Navbar() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, height: 0, overflow: 'hidden' }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="md:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 shadow-xl py-4 px-6 flex flex-col space-y-5 pb-8"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3, ease: "easeOut" }}
+            className="md:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 pb-10"
           >
             <NavbarItem to="/" isActive={true}>Home</NavbarItem>
             <NavbarItem to="#studio">Studio</NavbarItem>
@@ -71,6 +72,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </nav>
+    </motion.nav>
   );
 }
