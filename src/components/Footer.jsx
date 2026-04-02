@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function Footer() {
   return (
     <footer className="bg-[#e4f4ea] pt-10 pb-6 overflow-hidden">
@@ -7,7 +9,12 @@ export default function Footer() {
         <div className="w-full border-t border-[#c0d4ca] mb-16 lg:mb-24"></div>
 
         {/* Grid Layout */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-8 mb-24 lg:mb-32">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-12 lg:gap-8 mb-24 lg:mb-32">
           
           {/* Column 1 */}
           <div>
@@ -53,7 +60,7 @@ export default function Footer() {
             </div>
           </div>
 
-        </div>
+        </motion.div>
 
         {/* Copyright */}
         <div className="text-center">

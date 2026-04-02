@@ -25,20 +25,37 @@ export default function Newsletter() {
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 text-center">
         {/* Heading */}
-        <h2 className="text-5xl sm:text-6xl lg:text-[7rem] font-sans font-medium text-[#111827] leading-[1.05] tracking-tight mb-8">
+        <motion.h2 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="text-5xl sm:text-6xl lg:text-[7rem] font-sans font-medium text-[#111827] leading-[1.05] tracking-tight mb-8">
           Subscribe to<br />
           our newsletter
-        </h2>
+        </motion.h2>
         
         {/* Subtitle */}
-        <p className="text-[#4b5563] text-sm sm:text-lg mb-12 font-light tracking-wide">
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+          className="text-[#4b5563] text-sm sm:text-lg mb-12 font-light tracking-wide">
           To make your stay special and even more memorable
-        </p>
+        </motion.p>
 
         {/* Button */}
-        <button className="bg-[#111827] text-white rounded-full px-12 lg:px-14 py-4 lg:py-5 text-sm lg:text-base font-semibold hover:bg-gray-800 transition-colors shadow-2xl tracking-wide">
+        <motion.button
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-[#111827] text-white rounded-full px-12 lg:px-14 py-4 lg:py-5 text-sm lg:text-base font-semibold hover:bg-gray-800 transition-colors shadow-2xl tracking-wide">
           Subscribe Now
-        </button>
+        </motion.button>
       </div>
     </section>
   );

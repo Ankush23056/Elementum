@@ -28,11 +28,21 @@ export default function Features() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <motion.div 
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Heading */}
         <div className="mb-20 md:mb-32">
-          <h2 className="text-5xl sm:text-6xl lg:text-[7rem] font-sans text-[#111827] leading-[1.05] tracking-tight">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-5xl sm:text-6xl lg:text-[7rem] font-sans text-[#111827] leading-[1.05] tracking-tight">
             What we{' '}
             <span className="relative inline-block px-4 py-0 sm:py-1">
               <span className="relative z-10">can</span>
@@ -47,7 +57,7 @@ export default function Features() {
               </svg>
             </span>{' '}
             you!
-          </h2>
+          </motion.h2>
         </div>
 
         {/* Features List */}
@@ -55,7 +65,13 @@ export default function Features() {
           <div className="w-full border-t border-gray-200"></div>
 
           {features.map((feature, index) => (
-            <div key={index} className="group relative w-full border-b border-gray-200 py-10 sm:py-16 md:py-20 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
+            <motion.div 
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
+              className="group relative w-full border-b border-gray-200 py-10 sm:py-16 md:py-20 flex flex-col md:flex-row md:items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer">
 
               {/* Left Description Column */}
               <div className="w-full md:w-[25%] mb-4 md:mb-0 pr-4">
@@ -85,11 +101,11 @@ export default function Features() {
                 </svg>
               </div>
 
-            </div>
+            </motion.div>
           ))}
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 }

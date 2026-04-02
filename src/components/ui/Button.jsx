@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+
 export default function Button({ children, variant = "primary", className = "", ...props }) {
   const baseStyle = "font-semibold transition-all shadow-sm inline-flex items-center justify-center";
   const variants = {
@@ -7,8 +9,13 @@ export default function Button({ children, variant = "primary", className = "", 
     textRed: "text-brand-red hover:text-brand-red/80 shadow-none px-0 py-0 text-base sm:text-lg group",
   };
   return (
-    <button className={`${baseStyle} ${variants[variant] || variants.primary} ${className}`} {...props}>
+    <motion.button 
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className={`${baseStyle} ${variants[variant] || variants.primary} ${className}`} 
+      {...props}
+    >
       {children}
-    </button>
+    </motion.button>
   );
 }
