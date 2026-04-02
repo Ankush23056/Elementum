@@ -1,16 +1,9 @@
 import { motion } from 'framer-motion';
+import { SITE_CONTENT } from '../data';
+import { customEase, fadeInUp } from '../utils/motion';
 
 export default function Testimonials() {
-  const customEase = [0.215, 0.61, 0.355, 1];
-
-  const avatarVariants = {
-    initial: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1, 
-      transition: { duration: 0.6, ease: customEase } 
-    }
-  };
+  const { quote, author, role } = SITE_CONTENT.testimonials;
 
   const avatars = [
     { id: 1, img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop", pos: "top-[5%] left-[5%] sm:top-[10%] sm:left-[10%] w-20 h-20 sm:w-28 sm:h-28" },
@@ -30,10 +23,7 @@ export default function Testimonials() {
         {/* Heading */}
         <div className="text-center mb-16 md:mb-20">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: customEase }}
+            {...fadeInUp()}
             className="text-5xl sm:text-6xl lg:text-[4.5rem] font-sans text-[#111827] leading-[1.05] tracking-tight">
             <span className="relative inline-block px-4 py-0 sm:py-1">
               <span className="relative z-10">What</span>
@@ -58,12 +48,13 @@ export default function Testimonials() {
           viewport={{ once: true, margin: "-100px" }}
           className="relative h-[650px] sm:h-[800px] w-full max-w-5xl mx-auto flex items-center justify-center">
           
-          {/* Satellites with staggered entry */}
           {avatars.map((avatar, index) => (
             <motion.div 
               key={avatar.id}
-              variants={avatarVariants}
-              transition={{ delay: index * 0.05 }}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: index * 0.05, ease: customEase }}
               className={`absolute ${avatar.pos} rounded-full overflow-hidden border-4 border-white shadow-lg z-10`}
             >
               <img src={avatar.img} alt={`User ${avatar.id}`} className="w-full h-full object-cover" />
@@ -72,19 +63,16 @@ export default function Testimonials() {
 
           {/* Central Card */}
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.98 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, delay: 0.6, ease: customEase }}
+            {...fadeInUp(0.6)}
             className="relative z-20 w-[90%] sm:w-[500px] lg:w-[600px]">
             <div className="bg-white rounded-3xl p-10 sm:p-14 md:p-20 shadow-2xl relative text-center">
               <div className="absolute top-10 left-1/2 -translate-x-1/2 w-12 h-1 bg-[#FF5252] rounded-full"></div>
-              <p className="text-[#111827] text-2xl sm:text-3xl lg:text-[2.5rem] font-sans leading-[1.2] mb-12 tracking-tight italic">
-                "We add a layer of fearless insights and action that allows change makers."
+              <p className="text-[#111827] text-2xl sm:text-3xl lg:text-[2.3rem] font-sans leading-[1.2] mb-12 tracking-tight italic">
+                {quote}
               </p>
               <div className="flex flex-col items-center">
-                <span className="text-[#111827] font-bold text-lg mb-1 tracking-wide">ALEX REED</span>
-                <span className="text-[#9ca3af] text-sm uppercase tracking-[0.2em] font-medium">Head of Design</span>
+                <span className="text-[#111827] font-bold text-lg mb-1 tracking-wide uppercase">{author}</span>
+                <span className="text-[#9ca3af] text-sm uppercase tracking-[0.2em] font-medium">{role}</span>
               </div>
               <div className="absolute bottom-1 right-10 sm:right-16 text-[10rem] text-[#f3f4f6] font-serif leading-none select-none -z-10">”</div>
             </div>

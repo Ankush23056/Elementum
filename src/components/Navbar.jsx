@@ -3,44 +3,50 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import NavbarItem from './ui/NavbarItem';
 import Container from './ui/Container';
+import { customEase } from '../utils/motion';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const navLinks = [
+    { to: "/", label: "Home", isActive: true },
+    { to: "#studio", label: "Studio" },
+    { to: "#services", label: "Services" },
+    { to: "#contact", label: "Contact" },
+    { to: "#faqs", label: "FAQs" }
+  ];
 
   return (
     <motion.nav 
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.7, ease: customEase }}
       className="bg-white sticky top-0 z-50 shadow-sm"
     >
       <Container>
         <div className="flex justify-between h-20 items-center">
-          {/* Logo */}
+          
           <motion.div 
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: customEase }}
             className="flex-shrink-0 flex items-center">
             <Link to="/" className="text-2xl md:text-3xl font-bold font-serif tracking-wide text-gray-900">
-              Elementum<span className="text-brand-purple text-4xl leading-none">.</span>
+              Elementum<span className="text-[#8b5cf6] text-4xl leading-none">.</span>
             </Link>
           </motion.div>
           
-          {/* Desktop Nav */}
           <div className="hidden md:flex space-x-10 items-center">
-            <NavbarItem to="/" isActive={true}>Home</NavbarItem>
-            <NavbarItem to="#studio">Studio</NavbarItem>
-            <NavbarItem to="#services">Services</NavbarItem>
-            <NavbarItem to="#contact">Contact</NavbarItem>
-            <NavbarItem to="#faqs">FAQs</NavbarItem>
+            {navLinks.map((link, i) => (
+              <NavbarItem key={i} to={link.to} isActive={link.isActive}>{link.label}</NavbarItem>
+            ))}
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
-            <button 
+            <motion.button 
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-900 hover:text-brand-purple focus:outline-none shrink-0 p-2"
+              className="text-gray-900 hover:text-[#8b5cf6] focus:outline-none shrink-0 p-2"
             >
               <svg className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? (
@@ -49,26 +55,23 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                 )}
               </svg>
-            </button>
+            </motion.button>
           </div>
         </div>
       </Container>
       
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3, ease: customEase }}
             className="md:hidden absolute top-20 left-0 w-full bg-white border-t border-gray-100 shadow-xl py-6 px-6 flex flex-col space-y-6 pb-10"
           >
-            <NavbarItem to="/" isActive={true}>Home</NavbarItem>
-            <NavbarItem to="#studio">Studio</NavbarItem>
-            <NavbarItem to="#services">Services</NavbarItem>
-            <NavbarItem to="#contact">Contact</NavbarItem>
-            <NavbarItem to="#faqs">FAQs</NavbarItem>
+            {navLinks.map((link, i) => (
+              <NavbarItem key={i} to={link.to} isActive={link.isActive}>{link.label}</NavbarItem>
+            ))}
           </motion.div>
         )}
       </AnimatePresence>
